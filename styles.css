@@ -1,0 +1,74 @@
+/* Project Page Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+
+
+.button-set {
+  position: absolute;
+  border:solid 1px #ccc;
+  border-top: none;
+  border-radius: 0 0 50px 0px;
+  left: 0;
+  top: 0;
+}
+
+.button-set button {
+  padding: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+.vapotherm-menu-ex,  .vapotherm-menu-ex.fusion-main-menu {
+    float: none;
+    clear: both;
+    overflow: visible;
+    position: static;
+}
+
+.vapotherm-menu-ex,  .vapotherm-menu-ex.fusion-main-menu {
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+  position: absolute !important;
+  z-index: 2000;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.vapotherm-menu-ex > ul > li,  .vapotherm-menu-ex.fusion-main-menu > ul > li {
+  float: none;
+  display: inline-block;
+}
+
+.vapotherm-menu-ex > ul > li > a,  .vapotherm-menu-ex.fusion-main-menu > ul > li > a {
+  color: #fff;
+  font-weight: normal;
+  text-align: center;
+}

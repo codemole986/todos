@@ -1,0 +1,59 @@
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <input class="form-control" type="text" (keyup.enter)="addProject($event)" placeholder="What Project Do you Have in your Mind?" />
+
+      <p class="project-stat">
+        {{ getUndoneProjectsCount() }} / {{ getTotalProjectCount() }} , {{ getUndoneTodosCount() }} / {{ getTotalTodosCount() }}
+      </p>
+    </div>
+  </div>
+
+  <ul class="row" style="margin-top: 20px;">
+  	<li *ngFor="let project of projects; let pind=index" class="col col-sm-4 item-project">
+      
+      <div [ngClass]="{'overlay': true, 'active': isProjectLoading(project.id)}"></div>
+
+      <div [ngClass]="{'complete': project.is_done}">
+        <div class="sign"></div>
+        <div class="button-set">
+          <button class="btn btn-close" (click)="deleteProject(pind)">X</button>
+        </div>
+        
+        <h4>{{ project.name }}</h4>
+        <p [hidden]="true">{{ project.description }}</p>
+
+        <div class="todo-typer-section">
+          <input type="checkbox" class="check-all" [checked]="isAllDone(project)" [hidden]="project.todos.length == 0" (change)="toggleAllTodo(project, $event)" >
+          <input class="form-control" type="text" (keyup.enter)="addTodo(project, $event)" placeholder="What needs to be done?" />
+        </div>
+
+        <ul class="list-todo">
+          <li *ngFor="let todo of project.todos; let i=index" [ngClass]="{'item-todo': true, 'complete': todo.is_done}">
+            <div [ngClass]="{'hidden': editing_todo && (todo.id == editing_todo.id)}">  
+                
+              <label>
+                <input type="checkbox" [checked]="todo.is_done" (change)="toggleTodo(project, i)" />
+              </label>
+
+              <label class="todo-label" (dblclick)="editTodo($event, todo)" >
+                {{ todo.label }}
+              </label>
+              <button class="btn btn-close" (click)="deleteTodo(project, i)">X</button>
+            </div>
+
+            <div [ngClass]="{'hidden': !editing_todo || (todo.id != editing_todo.id)}">  
+              <input [focus]="editing_todo && (todo.id == editing_todo.id)" class="form-control todo-label-input" [ngModel]="todo.label" (keyup.enter)="editTodoDone($event, todo)" (keyup.esc)="editTodoDone(false, todo)"/>
+              <button class="btn btn-close" (click)="editTodoDone(false, todo)">X</button>
+            </div>
+
+          </li>
+        </ul>
+        <p class="list-todo-info">
+          {{ getTodoCount(project) }} items left.
+          <a href="#" class="pull-right" (click)="deleteDone(project, $event)">Clear Completed</a>
+        </p>
+      </div>
+      
+		</li>
+	</ul>

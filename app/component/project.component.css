@@ -1,0 +1,130 @@
+
+.project-stat {
+  padding: 5px;
+  border-bottom: dashed 3px #eee;
+  color: #aaa;
+}
+
+.item-project {margin-top: 30px; padding: 0 20px; position: relative;}
+.item-project .overlay {
+  position: absolute;
+  border: none;
+  padding: 0 !important;
+  left: 20px; right: 20px; top: 0; bottom: 0;
+  background: #fff url('images/lightbox-ico-loading.gif') center center no-repeat;
+  z-index: -1;
+
+  opacity: 0;
+  filter: alpha(opacity=0);
+
+  -webkit-transition: opacity 0.4s; /* Safari */
+  transition: opacity 0.4s;
+
+}
+
+.item-project .overlay.active {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  z-index: 20;
+}
+
+
+.item-project h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-project > div {
+  border: solid 2px #ccc;
+  padding: 10px;
+  position: relative;
+  -webkit-transition: all 0.4s; transition: all 0.4s;
+}
+.item-project > div.complete {
+  border-color: #6aa867;
+}
+
+.item-project > div .sign {
+  position: absolute;
+  width: 101px;
+  height: 94px;
+  background: url('images/stamp-complete-small.png') no-repeat right top;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  -webkit-transition: all 0.4s; transition: all 0.4s;
+  opacity: 0;
+}
+
+.item-project > div.complete .sign {
+  display: block;
+  opacity: 1;
+  z-index: 10;
+}
+
+.todo-typer-section { position: relative;}
+.todo-typer-section input[type=text] { text-indent: 30px; }
+.check-all { border: none; position: absolute; left:0; top:2px; -webkit-appearance: none; appearance: none;outline: none !important; margin:0 !important; }
+.check-all:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#eeeeee" stroke-width="6"/></svg>');
+  zoom: 0.75;
+}
+.check-all:checked:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#E08504" stroke-width="3"/><path fill="#E08504" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.list-todo {border: solid 1px #ccc; margin-top: 10px; border-radius: 5px 5px 0 0; border-bottom: none; height: 250px; overflow: auto;}
+.list-todo-info { padding: 5px; font-size: 12px; color: #999;border: solid 1px #ccc; margin-top: 10px; border-radius: 0 0 5px 5px; border-top: none; margin: 0; background: #eee;}
+
+.item-todo {
+  position: relative;  
+  z-index: 15;
+  border-bottom: solid 1px #eee;
+}
+
+.item-todo label.todo-label {
+  word-break: break-all;
+  padding: 5px 40px 0px 0px;
+  margin-left: 40px;
+  display: block;
+  font-size: 18px;
+  -webkit-transition: all 0.4s; transition: all 0.4s;
+  font-weight: normal;
+  color: #555;
+}
+.item-todo.complete label {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.item-todo label input {cursor: pointer; border: none; position: absolute; left:0; top:5px; margin:0px; -webkit-appearance: none; appearance: none;outline: none !important;}
+.item-todo label input:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#dddddd" stroke-width="6"/></svg>');
+    zoom: 0.75;
+}
+.item-todo.complete label input:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.item-todo .btn-close {color: #955; background: none; outline: none!important; position: absolute; top: 5px; right: 0; visibility: hidden; opacity: 0; -webkit-transition: all 0.4s; transition: all 0.4s;}
+.item-todo:hover .btn-close {visibility: visible; opacity: 1;}
+
+.item-todo .todo-label-input + .btn-close {
+  color: #555;
+}
+
+.item-todo .todo-label-input {
+    border-radius: 0;
+    border: none;
+    border-bottom: solid 1px #a77228;
+
+    background: #fde6c7;
+    color: #6b3f03;
+    height: 40px;
+    font-size: 18px;
+}
+
+.item-todo .todo-label-input:focus {outline: none;}
+
+
